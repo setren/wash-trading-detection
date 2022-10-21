@@ -1,0 +1,17 @@
+{
+  "name": "nft-wash-trading-detection",
+  "version": "1.0.0",
+  "description": "This project applies DFS to ERC721 NFT trading time-series transactions to find out the probability of a trader performing wash trading.",
+  "main": "circle_detect.js",
+  "dependencies": {
+    "double-ended-queue": "^2.1.0-0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "js": "nodemon circle_detect.js",
+    "python": "python3 circle_detect.py",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

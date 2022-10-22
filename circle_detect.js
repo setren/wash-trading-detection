@@ -13,15 +13,14 @@ function detect_cycle(edges) {
   edges.sort((a, b) => a["time"] - b["time"]);
 
   for (const edge of edges) {
-    if (!graph?.[edge["from"]]) {
+    if (!graph[edge["from"]]) {
       graph[`${edge["from"]}`] = new Deque();
-    } else {
-      graph[edge["from"]]?.push({
-        to: edge["to"],
-        time: edge["time"],
-        id: edge["id"], // transaction id
-      });
     }
+    graph[edge["from"]]?.push({
+      to: edge["to"],
+      time: edge["time"],
+      id: edge["id"], // transaction id
+    });
   }
 
   function dfs(address) {
@@ -29,10 +28,10 @@ function detect_cycle(edges) {
       return false;
     }
     visited.push(address);
-    while (graph?.[address] && graph[address]?.length != 0) {
+    while (graph[address] && graph[address].length) {
       const d = graph[address].shift();
       if (!dfs(d["to"])) {
-        if (!cycle_occurence?.[address]) {
+        if (!cycle_occurence[address]) {
           cycle_occurence[address] = 0;
         }
         cycle_occurence[address] += 1;
@@ -61,7 +60,6 @@ function main() {
         return element !== "";
       })
       .map((item) => JSON.parse(item));
-    // detect_cycle(edges);
     console.log(edges[0]["asset"]["tokenId"], detect_cycle(edges));
   }
 }

@@ -59,5 +59,5 @@ for file_name in files:
             d = eval(line)
 
             edges.append(d)
-
+            
         print(edges[0]['asset']['tokenId'], detect_cycle(edges))

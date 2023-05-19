@@ -1,7 +1,6 @@
-# JS version of https://github.com/Bill0412/nft-wash-trading-detection
-
 # Wash Trading Cycle Detection
 
+https://github.com/Bill0412/nft-wash-trading-detection
 This project applies DFS to ERC721 NFT trading time-series transactions to find out the probability of a trader performing wash trading.
 
 ## Algorithm Time Complexity
